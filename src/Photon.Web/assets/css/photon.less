@@ -1,0 +1,50 @@
+﻿@import "bootstrap/bootstrap.less";
+@import "bootstrap/responsive.less";
+
+body {
+	background-image: url("/assets/img/navy_blue.png");
+	color: #fff;
+}
+
+#pg{
+	
+}
+
+.page-nav{
+	font-family: "Open Sans Condensed";
+	border-width: 0;
+	font-size: 1.2em;
+	#translucent.background(@color: #111, @alpha:0.8);
+	background-image: none;
+	margin-bottom: 40px;
+	color: #123;
+	.brand {
+		color: #eee;		
+	}
+
+	ul.nav {
+		li > a {
+			font-size: 1em;
+			font-weight: normal;
+			color: #eee;
+			text-shadow: none;
+			&:hover {
+				color: Orange;
+			}
+		}
+	}
+
+}
+
+
+.tiles-container{
+	color: #eee;
+	#translucent.background(@color: #111, @alpha:0.5);
+	text-align:center;
+	.thumbnail {
+		border-color: #123;
+		.caption {
+			color: #eee;
+		}
+	}
+}

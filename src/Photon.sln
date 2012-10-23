@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{04C85D46-00A2-4F52-B7D0-C2EB62B2EB60}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photon.Web", "Photon.Web\Photon.Web.csproj", "{54687410-F9C8-4486-8CC9-1388573C898E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photon.Tests", "Photon.Tests\Photon.Tests.csproj", "{0E9D25D2-6ECD-46B8-B955-64A7A858B68D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54687410-F9C8-4486-8CC9-1388573C898E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54687410-F9C8-4486-8CC9-1388573C898E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54687410-F9C8-4486-8CC9-1388573C898E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54687410-F9C8-4486-8CC9-1388573C898E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E9D25D2-6ECD-46B8-B955-64A7A858B68D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E9D25D2-6ECD-46B8-B955-64A7A858B68D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E9D25D2-6ECD-46B8-B955-64A7A858B68D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E9D25D2-6ECD-46B8-B955-64A7A858B68D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

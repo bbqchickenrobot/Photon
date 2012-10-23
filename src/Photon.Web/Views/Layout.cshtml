@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@(ViewBag.Title ?? "Home") : Photon</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+	@Html.Raw(
+				Bundle.Css()
+					.Add("~/assets/css/normalize.css")
+					.Add("~/assets/css/main.css")
+					.Add("~/assets/css/jquery.maximage.css")
+					.Add("~/assets/css/photon.less")
+					.Render("~/assets/css/combined_#.css")
+		 )
+
+	<script src="@Url.Content("~/assets/js/common/modernizr-2.6.1.min.js")"></script>
+	@Html.Raw(
+				Bundle.JavaScript()
+						.Add("~/assets/js/jquery/jquery-1.8.0.min.js")
+						.Add("~/assets/js/common/bootstrap.js")
+						.Add("~/assets/js/jquery/jquery.easing.js")
+						.Add("~/assets/js/jquery/jquery.cycle.js")
+						.Add("~/assets/js/jquery/jquery.maximage.js")
+						.Add("~/assets/js/plugins.js")
+						.Add("~/assets/js/main.js")
+						.Render("~/assets/js/combined_#.js")
+		)
+</head>
+<body>
+	<!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+	<div class="container-fluid">
+		<div class="navbar">
+			<div class="navbar-inner page-nav">
+					<a class="brand" href="#">
+						Photon
+						@*<img src="@Url.Content("~/assets/img/site-logo.png")" />*@
+					</a>
+					<ul class="nav">
+						<li><a href="@Url.Content("~/")">Home</a></li>
+						<li><a href="@Url.Content("~/admin")">Admin</a></li>
+					</ul>
+			</div>
+		</div>
+		@RenderBody()
+	</div>
+</body>
+</html>
