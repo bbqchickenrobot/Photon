@@ -161,10 +161,6 @@
     <Content Include="apple-touch-icon-72x72-precomposed.png" />
     <Content Include="apple-touch-icon-precomposed.png" />
     <Content Include="apple-touch-icon.png" />
-    <Content Include="assets\css\fonts\font-awesome\fontawesome-webfont.svg" />
-    <Content Include="assets\css\jquery.maximage.css" />
-    <Content Include="assets\css\main.css" />
-    <Content Include="assets\css\normalize.css" />
     <Content Include="assets\img\navy_blue.png" />
     <Content Include="assets\img\site-logo.png" />
     <Content Include="assets\js\common\bootstrap.js" />
@@ -187,60 +183,67 @@
     <Compile Include="Core\PhotonBootstrapper.cs" />
     <Compile Include="Modules\AdminModule.cs" />
     <Compile Include="Modules\MainModule.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="assets\css\bootstrap\accordion.less" />
-    <Content Include="assets\css\bootstrap\alerts.less" />
-    <Content Include="assets\css\bootstrap\bootstrap.less" />
-    <Content Include="assets\css\bootstrap\breadcrumbs.less" />
-    <Content Include="assets\css\bootstrap\button-groups.less" />
-    <Content Include="assets\css\bootstrap\buttons.less" />
-    <Content Include="assets\css\bootstrap\carousel.less" />
-    <Content Include="assets\css\bootstrap\close.less" />
-    <Content Include="assets\css\bootstrap\code.less" />
-    <Content Include="assets\css\bootstrap\component-animations.less" />
-    <Content Include="assets\css\bootstrap\dropdowns.less" />
-    <Content Include="assets\css\bootstrap\font-awesome-ie7.less" />
-    <Content Include="assets\css\bootstrap\font-awesome.less" />
-    <Content Include="assets\css\bootstrap\forms.less" />
-    <Content Include="assets\css\bootstrap\grid.less" />
-    <Content Include="assets\css\bootstrap\hero-unit.less" />
-    <Content Include="assets\css\bootstrap\labels-badges.less" />
-    <Content Include="assets\css\bootstrap\layouts.less" />
-    <Content Include="assets\css\bootstrap\mixins.less" />
-    <Content Include="assets\css\bootstrap\modals.less" />
-    <Content Include="assets\css\bootstrap\navbar.less" />
-    <Content Include="assets\css\bootstrap\navs.less" />
-    <Content Include="assets\css\bootstrap\pager.less" />
-    <Content Include="assets\css\bootstrap\pagination.less" />
-    <Content Include="assets\css\bootstrap\popovers.less" />
-    <Content Include="assets\css\bootstrap\progress-bars.less" />
-    <Content Include="assets\css\bootstrap\reset.less" />
-    <Content Include="assets\css\bootstrap\responsive-1200px-min.less" />
-    <Content Include="assets\css\bootstrap\responsive-767px-max.less" />
-    <Content Include="assets\css\bootstrap\responsive-768px-979px.less" />
-    <Content Include="assets\css\bootstrap\responsive-navbar.less" />
-    <Content Include="assets\css\bootstrap\responsive-utilities.less" />
-    <Content Include="assets\css\bootstrap\responsive.less" />
-    <Content Include="assets\css\bootstrap\scaffolding.less" />
-    <Content Include="assets\css\bootstrap\sprites.less" />
-    <Content Include="assets\css\bootstrap\tables.less" />
-    <Content Include="assets\css\bootstrap\thumbnails.less" />
-    <Content Include="assets\css\bootstrap\tooltip.less" />
-    <Content Include="assets\css\bootstrap\type.less" />
-    <Content Include="assets\css\bootstrap\utilities.less" />
-    <Content Include="assets\css\bootstrap\variables.less" />
-    <Content Include="assets\css\bootstrap\wells.less" />
-    <Content Include="assets\css\fonts\font-awesome\fontawesome-webfont.eot" />
-    <Content Include="assets\css\fonts\font-awesome\fontawesome-webfont.ttf" />
-    <Content Include="assets\css\fonts\font-awesome\fontawesome-webfont.woff" />
-    <Content Include="assets\css\photon.less" />
     <Content Include="Views\Layout.cshtml" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\AdminHome.cshtml" />
+    <None Include="assets\css\bootstrap\accordion.less" />
+    <None Include="assets\css\bootstrap\alerts.less" />
+    <None Include="assets\css\bootstrap\bootstrap.less" />
+    <None Include="assets\css\bootstrap\breadcrumbs.less" />
+    <None Include="assets\css\bootstrap\button-groups.less" />
+    <None Include="assets\css\bootstrap\buttons.less" />
+    <None Include="assets\css\bootstrap\carousel.less" />
+    <None Include="assets\css\bootstrap\close.less" />
+    <None Include="assets\css\bootstrap\code.less" />
+    <None Include="assets\css\bootstrap\component-animations.less" />
+    <None Include="assets\css\bootstrap\dropdowns.less" />
+    <None Include="assets\css\bootstrap\font-awesome-ie7.less" />
+    <None Include="assets\css\bootstrap\font-awesome.less" />
+    <None Include="assets\css\bootstrap\forms.less" />
+    <None Include="assets\css\bootstrap\grid.less" />
+    <None Include="assets\css\bootstrap\hero-unit.less" />
+    <None Include="assets\css\bootstrap\labels-badges.less" />
+    <None Include="assets\css\bootstrap\layouts.less" />
+    <None Include="assets\css\bootstrap\media.less" />
+    <None Include="assets\css\bootstrap\mixins.less" />
+    <None Include="assets\css\bootstrap\modals.less" />
+    <None Include="assets\css\bootstrap\navbar.less" />
+    <None Include="assets\css\bootstrap\navs.less" />
+    <None Include="assets\css\bootstrap\pager.less" />
+    <None Include="assets\css\bootstrap\pagination.less" />
+    <None Include="assets\css\bootstrap\popovers.less" />
+    <None Include="assets\css\bootstrap\progress-bars.less" />
+    <None Include="assets\css\bootstrap\reset.less" />
+    <None Include="assets\css\bootstrap\responsive-1200px-min.less" />
+    <None Include="assets\css\bootstrap\responsive-767px-max.less" />
+    <None Include="assets\css\bootstrap\responsive-768px-979px.less" />
+    <None Include="assets\css\bootstrap\responsive-navbar.less" />
+    <None Include="assets\css\bootstrap\responsive-utilities.less" />
+    <None Include="assets\css\bootstrap\responsive.less" />
+    <None Include="assets\css\bootstrap\scaffolding.less" />
+    <None Include="assets\css\bootstrap\sprites.less" />
+    <None Include="assets\css\bootstrap\tables.less" />
+    <None Include="assets\css\bootstrap\thumbnails.less" />
+    <None Include="assets\css\bootstrap\tooltip.less" />
+    <None Include="assets\css\bootstrap\type.less" />
+    <None Include="assets\css\bootstrap\utilities.less" />
+    <None Include="assets\css\bootstrap\variables.less" />
+    <None Include="assets\css\bootstrap\wells.less" />
+    <None Include="assets\css\font-awesome\font-awesome-ie7.less" />
+    <None Include="assets\css\font-awesome\font-awesome.less" />
+    <None Include="assets\css\fonts\font-awesome\fontawesome-webfont.eot" />
+    <None Include="assets\css\fonts\font-awesome\fontawesome-webfont.svg" />
+    <None Include="assets\css\fonts\font-awesome\fontawesome-webfont.ttf" />
+    <None Include="assets\css\fonts\font-awesome\fontawesome-webfont.woff" />
+    <None Include="assets\css\jquery.maximage.css" />
+    <None Include="assets\css\main.css" />
+    <None Include="assets\css\normalize.css" />
+    <None Include="assets\css\photon.less" />
+    <None Include="assets\css\photon.less.squishit.debug.css" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -248,7 +251,13 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="assets\css" />
+    <Folder Include="assets\css\bootstrap" />
+    <Folder Include="assets\css\font-awesome" />
+    <Folder Include="assets\css\fonts" />
+    <Folder Include="assets\css\fonts\font-awesome" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
