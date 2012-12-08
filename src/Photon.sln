@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{04C85D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photon.Web", "Photon.Web\Photon.Web.csproj", "{54687410-F9C8-4486-8CC9-1388573C898E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photon.Tests", "Photon.Tests\Photon.Tests.csproj", "{0E9D25D2-6ECD-46B8-B955-64A7A858B68D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photon.Specifications", "Photon.Specifications\Photon.Specifications.csproj", "{0E9D25D2-6ECD-46B8-B955-64A7A858B68D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,10 +22,10 @@ Global
 		{54687410-F9C8-4486-8CC9-1388573C898E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54687410-F9C8-4486-8CC9-1388573C898E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54687410-F9C8-4486-8CC9-1388573C898E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E9D25D2-6ECD-46B8-B955-64A7A858B68D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0E9D25D2-6ECD-46B8-B955-64A7A858B68D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E9D25D2-6ECD-46B8-B955-64A7A858B68D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E9D25D2-6ECD-46B8-B955-64A7A858B68D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0E9D25D2-6ECD-46B8-B955-64A7A858B68D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E9D25D2-6ECD-46B8-B955-64A7A858B68D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

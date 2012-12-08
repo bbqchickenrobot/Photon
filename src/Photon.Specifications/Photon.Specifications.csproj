@@ -7,8 +7,8 @@
     <ProjectGuid>{0E9D25D2-6ECD-46B8-B955-64A7A858B68D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Photon.Tests</RootNamespace>
-    <AssemblyName>Photon.Tests</AssemblyName>
+    <RootNamespace>Photon.Specifications</RootNamespace>
+    <AssemblyName>Photon.Specifications</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
