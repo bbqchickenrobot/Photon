@@ -141,6 +141,7 @@
     <Folder Include="ServiceSpecs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModuleSpecs\MainModuleSpecs.cs" />
     <Compile Include="ServiceSpecs\AlbumServiceSpecs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

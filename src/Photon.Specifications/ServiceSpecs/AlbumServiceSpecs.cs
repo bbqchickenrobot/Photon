@@ -9,7 +9,7 @@ using Raven.Client.Embedded;
 namespace Photon.Specifications.ServiceSpecs
 {
 	[TestFixture]
-	public class AlbumServiceTests
+	public class AlbumServiceSpecs
 	{
 		[TestFixture]
 		public class When_calling_RecentAlbums 
@@ -60,6 +60,13 @@ namespace Photon.Specifications.ServiceSpecs
 				//Assert
 				Assert.AreEqual(3, albums.Count);
 			}		
+		}
+		
+		[TestFixture]
+		public class When_calliing_AddAlbum
+		{
+			
+			
 		}
 			
 	}
