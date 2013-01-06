@@ -7,6 +7,9 @@ namespace Photon.Web.Services
 {
 	public interface IAlbumService
 	{
-		IList<Album> RecentAlbums(int limit);
+		IList<Album> Recent(int limit);
+		Album Load(string id);
+		Album Save(Album album);
+		void Delete(Album album);
 	}
 }

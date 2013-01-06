@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Web;
+﻿
+using System;
 using Nancy;
 using Nancy.Conventions;
-
-using Raven.Client;
-using Raven.Client.Document;
-using Raven.Client.Embedded;
 using Nancy.TinyIoc;
+using Raven.Client;
+using Raven.Client.Embedded;
 
-namespace Photon.Web.Core
+namespace Photon.Specifications
 {
-	public class PhotonBootstrapper:DefaultNancyBootstrapper
+	public class PhotonTestBootStrapper:DefaultNancyBootstrapper
 	{
 		protected override void ConfigureConventions(Nancy.Conventions.NancyConventions nancyConventions)
 		{
@@ -29,7 +24,7 @@ namespace Photon.Web.Core
 			
 			var docStore = new EmbeddableDocumentStore
 			{
-				DataDirectory = "PhotonDB"
+				RunInMemory = true
 			};
 			docStore.Initialize();
 
@@ -47,9 +42,6 @@ namespace Photon.Web.Core
 			});
 		}
 		
-		protected override Nancy.Diagnostics.DiagnosticsConfiguration DiagnosticsConfiguration
-		{
-			get { return new Nancy.Diagnostics.DiagnosticsConfiguration { Password = "password" }; }
-		}
+		
 	}
 }

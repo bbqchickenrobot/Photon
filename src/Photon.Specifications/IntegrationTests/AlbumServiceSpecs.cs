@@ -6,29 +6,14 @@ using Photon.Web.Services;
 using Raven.Client;
 using Raven.Client.Embedded;
 
-namespace Photon.Specifications.ServiceSpecs
+namespace Photon.Specifications.IntegrationTests.ServiceSpecs
 {
 	[TestFixture]
 	public class AlbumServiceSpecs
 	{
 		[TestFixture]
-		public class When_calling_RecentAlbums 
+		public class When_calling_Recent :TestBaseWithDatabase
 		{
-			internal  IDocumentStore DocumentStore  {get; set;}
-			[SetUp]
-			public void SetUp()
-			{
-				this.DocumentStore = new EmbeddableDocumentStore
-				{
-					RunInMemory = true
-				};
-				this.DocumentStore.Initialize();
-			}
-			
-			public IDocumentSession GetNewSession()
-			{
-				return this.DocumentStore.OpenSession();
-			}
 			
 			[Test]
 			public void should_return_empty_list_if_no_albums_exists()
@@ -38,7 +23,7 @@ namespace Photon.Specifications.ServiceSpecs
 				var albumService = new AlbumService(session);
 				
 				//Act
-				var albums = albumService.RecentAlbums(10);
+				var albums = albumService.Recent(10);
 				//Assert
 				Assert.AreEqual(0, albums.Count);
 				
@@ -56,7 +41,7 @@ namespace Photon.Specifications.ServiceSpecs
 				var albumService = new AlbumService(session);
 				
 				//Act
-				var albums = albumService.RecentAlbums(3);
+				var albums = albumService.Recent(3);
 				//Assert
 				Assert.AreEqual(3, albums.Count);
 			}		
