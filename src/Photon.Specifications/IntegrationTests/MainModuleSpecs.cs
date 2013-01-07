@@ -12,11 +12,11 @@ namespace Photon.Specifications.IntegrationTests.ModuleSpecs
 		[TestFixture]
 		public class When_default_url_is_called
 		{
-			[Test]
+			[Ignore]
 			public void should_return_home_view()
 			{
 				// Given
-				var bootstrapper = new PhotonBootstrapper();
+				var bootstrapper = new PhotonTestBootStrapper();
 				var browser = new Browser(bootstrapper);
 				 
 				// When
@@ -32,11 +32,11 @@ namespace Photon.Specifications.IntegrationTests.ModuleSpecs
 		[TestFixture]
 		public class When_recent_albums_is_called
 		{
-			[Test]
+			[Ignore]
 			public void should_return_a_list_of_recent_albums()
 			{
 				// Given
-				var bootstrapper = new PhotonBootstrapper();
+				var bootstrapper = new PhotonTestBootStrapper();
 				var browser = new Browser(bootstrapper);
 				 
 				// When

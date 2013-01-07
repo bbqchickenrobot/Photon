@@ -157,14 +157,17 @@
   <ItemGroup>
     <Compile Include="IntegrationTests\AlbumServiceSpecs.cs" />
     <Compile Include="IntegrationTests\MainModuleSpecs.cs" />
+    <Compile Include="ModelsTests\AlbumTests.cs" />
     <Compile Include="ModulesTests\MainModuleTests.cs" />
     <Compile Include="PhotonTestBootStrapper.cs" />
     <Compile Include="ServicesTests\AlbumServiceTests.cs" />
+    <Compile Include="ServicesTests\PhotoServiceTests.cs" />
     <Compile Include="TestBaseWithDatabase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="IntegrationTests" />
     <Folder Include="ModulesTests" />
+    <Folder Include="ModelsTests" />
     <Folder Include="ServicesTests" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

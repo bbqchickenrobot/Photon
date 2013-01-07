@@ -190,5 +190,198 @@ namespace Photon.Specifications.ServicesTests
 			}
 		}
 		
+		[Test]
+		public void LoadForPhoto_Returns_Album_For_Existing_Photo()
+		{
+			using(var session = this.GetNewSession())
+			{
+				var album = new Album
+				{
+					Name = "Some Photo"
+				};
+				
+				var photo = new Photo
+				{
+					Name = "Some Photo",
+					Album = album
+				};
+				
+				album.Photos.Add(photo);
+				session.Store(album);
+				session.SaveChanges();
+				
+				var albumService = new AlbumService(session);
+				var queriedAlbum = albumService.LoadForPhoto(photo.Id);
+				Assert.NotNull(queriedAlbum);
+			}
+		}
+		
+		[Test]
+		public void Save_Persists_AddedPhotos_Of_Album_To_Repository()
+		{
+			using(var session = this.GetNewSession())
+			{
+				var album = new Album
+				{
+					Name = "Some Photo"
+				};
+				
+				var photo = new Photo
+				{
+					Name = "Some Photo",
+					Album = album
+				};
+				
+				album.Photos.Add(photo);
+				
+				var albumService = new AlbumService(session);
+				albumService.Save(album);
+				var queriedAlbum = albumService.Load(album.Id);
+				Assert.NotNull(queriedAlbum);
+				Assert.AreEqual(1, queriedAlbum.Photos.Count());
+			}
+		}
+		
+		[Test]
+		public void Save_Deletes_RemovedPhotos_Of_Album_From_Repository()
+		{
+			using(var session = this.GetNewSession())
+			{
+				var album = new Album
+				{
+					Name = "Some Photo"
+				};
+				
+				var photo = new Photo
+				{
+					Name = "Some Photo",
+					Album = album
+				};
+				
+				album.Photos.Add(photo);
+				session.Store(album);
+				session.SaveChanges();
+				
+				album.Photos.Clear();
+				var albumService = new AlbumService(session);
+				albumService.Save(album);
+				var queriedAlbum = albumService.Load(album.Id);
+				Assert.NotNull(queriedAlbum);
+				Assert.AreEqual(0, queriedAlbum.Photos.Count());
+			}
+		}
+		
+		[Test]
+		public void Save_Persists_ChangedPhotos_Of_Album_To_Repository()
+		{
+			using(var session = this.GetNewSession())
+			{
+				var album = new Album
+				{
+					Name = "Some Photo"
+				};
+				
+				var photo = new Photo
+				{
+					Name = "Some Photo",
+					Album = album
+				};
+				
+				album.Photos.Add(photo);
+				session.Store(album);
+				session.SaveChanges();
+				
+				photo.Name = "Changed Photo";
+				
+				var albumService = new AlbumService(session);
+				albumService.Save(album);
+				var queriedAlbum = albumService.Load(album.Id);
+				Assert.NotNull(queriedAlbum);
+				Assert.AreEqual("Changed Photo", queriedAlbum.Photos[0].Name);
+			}
+		}
+		
+		[Test]
+		public void FindByTags_Returns_Albums_With_Macthing_Tags()
+		{
+			using(var session = this.GetNewSession())
+			{
+				var firstAlbum = new Album
+				{
+					Name = "First Album",
+					Tags = new System.Collections.Generic.List<String>
+					{
+						"some", "any", "none"
+					}
+				};
+				
+				var secondAlbum = new Album
+				{
+					Name = "Second Album",
+					Tags = new System.Collections.Generic.List<String>
+					{
+						"some"
+					}
+				};
+				session.Store(firstAlbum);
+				session.Store(secondAlbum);
+				session.SaveChanges();
+				
+				var tags =new System.Collections.Generic.List<String>
+					{
+						"Some"
+					};
+				var albumService = new AlbumService(session);
+				var albums = albumService.FindByTags(tags);
+				
+				Assert.AreEqual(2, albums.Count());
+			}
+		}
+		
+		[Test]
+		public void FindPhotosByTags_Returns_Photos_With_Macthing_Tags()
+		{
+			using(var session = this.GetNewSession())
+			{
+				var album = new Album
+				{
+					
+				};
+				
+				var firstPhoto= new Photo
+				{
+					Name = "First Photo",
+					Tags = new System.Collections.Generic.List<String>
+					{
+						"some", "any", "none"
+					}
+				};
+				
+				var secondPhoto = new Photo
+				{
+					Name = "Second Photo",
+					Tags = new System.Collections.Generic.List<String>
+					{
+						"some"
+					}
+				};
+				
+				album.Photos.Add(firstPhoto);
+				album.Photos.Add(secondPhoto);
+				session.Store(album);
+				
+				session.SaveChanges();
+				
+				var tags =new System.Collections.Generic.List<String>
+					{
+						"Some"
+					};
+				var albumService = new AlbumService(session);
+				var photos = albumService.FindPhotosByTags(tags);
+				
+				Assert.AreEqual(2, photos.Count());
+			}
+		}
+		
 	}
 }

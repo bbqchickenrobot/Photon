@@ -7,26 +7,21 @@ using Photon.Web.Models;
 using Photon.Web.Services.Exceptions;
 using Raven.Client;
 using Raven.Client.Linq;
+using Raven.Database.Linq.PrivateExtensions;
 
 namespace Photon.Web.Services
 {
-	public class AlbumService:IAlbumService
+	public class AlbumService: PhotonServiceBase<Album>, IAlbumService
 	{
-		private IDocumentSession Session {get; set;}
-		public AlbumService(IDocumentSession session)
+		public AlbumService(IDocumentSession session):base(session)
 		{
-			this.Session = session;
 		}
 		
-		public virtual Album Load(string id)
-		{
-			return this.Session.Load<Album>(id);
-		}
 		
 		public virtual IList<Album> Recent(int limit)
 		{
-			return this.Session
-				.Query<Album>()
+			return 
+				this.All()
 				.OrderBy(a => a.ModifiedDate)
 				.Take(limit)
 				.ToList();
@@ -39,24 +34,37 @@ namespace Photon.Web.Services
 				.Any(a => a.Name == album.Name && a.Id != album.Id);
 		}
 		
-		public virtual Album Save(Album album)
+		public override Album Save(Album album)
 		{
-			
 			var duplicateAlbumExists = this.IsDuplicateAlbum(album);
-				
 			if(duplicateAlbumExists)
 			{
 				throw new DuplicateEntityException("Album with name {0} already exists".FormatWith(album.Name));
 			}
-			this.Session.Store(album);
-			this.Session.SaveChanges();
-			return album;
+			return base.Save(album);
 		}
 		
-		public virtual void Delete(Album album)
+		public virtual Album LoadForPhoto(string photoId)
 		{
-			this.Session.Delete(album);
-			this.Session.SaveChanges();
+			return this.All().Where(a => a.Photos.Any(p => p.Id == photoId)).FirstOrDefault();
+		}
+		
+		public virtual IList<Album> FindByTags(IList<String> tags)
+		{
+			return this.All()
+				.Where(a => a.Tags.Any(b => b.In(tags)))
+				.ToList();
+		}
+		
+		public IList<Photo> FindPhotosByTags(IList<String> tags)
+		{
+			var results = 
+				from a in this.All()
+				from p in a.Photos
+				where p.Tags.Any(b => b.In(tags))
+				select p;
+			return results.ToList();
+			
 		}
 	}
 }
