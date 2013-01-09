@@ -1,14 +1,16 @@
 ﻿
 using System;
 using Nancy;
+using Nancy.Authentication.Forms;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
+using Photon.Web.Security;
 using Raven.Client;
 using Raven.Client.Embedded;
 
 namespace Photon.Specifications
 {
-	public class PhotonTestBootStrapper:DefaultNancyBootstrapper
+	public class PhotonTestBootstrapper:DefaultNancyBootstrapper
 	{
 		protected override void ConfigureConventions(Nancy.Conventions.NancyConventions nancyConventions)
 		{
@@ -31,10 +33,24 @@ namespace Photon.Specifications
 			existingContainer
 				.Register<IDocumentStore>(docStore);
 		}
+		
+		protected override void RequestStartup(TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines, NancyContext context)
+		{
+			base.RequestStartup(container, pipelines, context);
+			var formsAuthConfiguration =
+	            new FormsAuthenticationConfiguration()
+	            {
+	                RedirectUrl = "~/login",
+	                UserMapper = container.Resolve<IUserMapper>(),
+	            };
+	
+	        FormsAuthentication.Enable(pipelines, formsAuthConfiguration);
+		}
 
 		protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
 		{
 			base.ConfigureRequestContainer(container, context);
+			container.Register<IUserMapper, PhotonUserMapper>();
 			container.Register<IDocumentSession>((c, p) => {
 				return 
 					c.Resolve<IDocumentStore>()

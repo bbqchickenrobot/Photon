@@ -19,7 +19,7 @@ namespace Photon.Specifications.ModulesTests
 		public void DefaultPath_ShouldReturn_HomeViewModel()
 		{
 			// Given
-		    var bootstrapper = new PhotonTestBootStrapper();
+		    var bootstrapper = new PhotonTestBootstrapper();
 		    var browser = new Browser(bootstrapper);
 		     
 		    // When

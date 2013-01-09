@@ -16,7 +16,7 @@ namespace Photon.Specifications.IntegrationTests.ModuleSpecs
 			public void should_return_home_view()
 			{
 				// Given
-				var bootstrapper = new PhotonTestBootStrapper();
+				var bootstrapper = new PhotonTestBootstrapper();
 				var browser = new Browser(bootstrapper);
 				 
 				// When
@@ -36,7 +36,7 @@ namespace Photon.Specifications.IntegrationTests.ModuleSpecs
 			public void should_return_a_list_of_recent_albums()
 			{
 				// Given
-				var bootstrapper = new PhotonTestBootStrapper();
+				var bootstrapper = new PhotonTestBootstrapper();
 				var browser = new Browser(bootstrapper);
 				 
 				// When

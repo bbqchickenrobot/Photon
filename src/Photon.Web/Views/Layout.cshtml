@@ -17,7 +17,6 @@
 				Bundle.Css()
 					.Add("~/assets/css/normalize.css")
 					.Add("~/assets/css/main.css")
-					.Add("~/assets/css/jquery.maximage.css")
 					.Add("~/assets/css/photon.less")
 					.Render("~/assets/css/combined_#.css")
 		 )
@@ -25,15 +24,25 @@
 	<script src="@Url.Content("~/assets/js/common/modernizr-2.6.1.min.js")"></script>
 	@Html.Raw(
 				Bundle.JavaScript()
-						.Add("~/assets/js/jquery/jquery-1.8.0.min.js")
+						.Add("~/assets/js/jquery/jquery.js")
+						.Add("~/assets/js/common/lodash.js")
+						.Add("~/assets/js/common/backbone.js")
 						.Add("~/assets/js/common/bootstrap.js")
-						.Add("~/assets/js/jquery/jquery.easing.js")
-						.Add("~/assets/js/jquery/jquery.cycle.js")
-						.Add("~/assets/js/jquery/jquery.maximage.js")
 						.Add("~/assets/js/plugins.js")
-						.Add("~/assets/js/main.js")
+						.Add("~/assets/js/utils.js")
 						.Render("~/assets/js/combined_#.js")
 		)
+
+	@Html.Raw(
+				Bundle.JavaScript()
+						.Add("~/assets/js/app/models/album-model.js")
+						.Add("~/assets/js/app/views/album-details.js")
+						.Add("~/assets/js/app/views/album-list.js")
+						.Add("~/assets/js/app/main.js")
+						.Render("~/assets/js/combined_#.js")
+	)
+
+		
 </head>
 <body>
 	<!--[if lt IE 7]>

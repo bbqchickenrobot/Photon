@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Photon.Web.DataStore.Indexes;
 using Photon.Web.Extensions;
 using Photon.Web.Models;
 using Photon.Web.Services.Exceptions;
@@ -58,13 +59,13 @@ namespace Photon.Web.Services
 		
 		public IList<Photo> FindPhotosByTags(IList<String> tags)
 		{
-			var results = 
-				from a in this.All()
+			var results =
+				from tp in this.Session.Query<TaggedPhotos, TaggedPhotosIndex>()
+				from a in this.Session.Query<Album>()
 				from p in a.Photos
-				where p.Tags.Any(b => b.In(tags))
+				where p.Id.In(tp.PhotoIds)
 				select p;
 			return results.ToList();
-			
 		}
 	}
 }

@@ -4,8 +4,9 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using Nancy;
+using Nancy.Authentication.Forms;
 using Nancy.Conventions;
-
+using Photon.Web.Security;
 using Raven.Client;
 using Raven.Client.Document;
 using Raven.Client.Embedded;
@@ -40,11 +41,25 @@ namespace Photon.Web.Core
 		protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
 		{
 			base.ConfigureRequestContainer(container, context);
+			container.Register<IUserMapper, PhotonUserMapper>();
 			container.Register<IDocumentSession>((c, p) => {
 				return 
 					c.Resolve<IDocumentStore>()
 					.OpenSession();
 			});
+		}
+		
+		protected override void RequestStartup(TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines, NancyContext context)
+		{
+			base.RequestStartup(container, pipelines, context);
+			var formsAuthConfiguration =
+	            new FormsAuthenticationConfiguration()
+	            {
+	                RedirectUrl = "~/login",
+	                UserMapper = container.Resolve<IUserMapper>(),
+	            };
+	
+	        FormsAuthentication.Enable(pipelines, formsAuthConfiguration);
 		}
 		
 		protected override Nancy.Diagnostics.DiagnosticsConfiguration DiagnosticsConfiguration
