@@ -9,21 +9,21 @@ namespace Photon.Specifications.ModulesTests
 	[TestFixture]
 	public class AdminModuleTests:TestBaseWithDatabase
 	{
-		
-		[Ignore("Ignoring it till I learn how to TDD NancyFx Forms Auth")]
-		public void AdminModule_ShouldThrow_NotAuthenticated_If_User_Is_Not_LoggedIn()
+		[Test]
+		public void AdminModule_Should_Redirect_To_Login_If_User_Is_Not_LoggedIn()
 		{
 			// Given
 			var bootstrapper = new PhotonTestBootstrapper();
 		    var browser = new Browser(bootstrapper);
 		     
 		    // When
-		    var result = browser.Get("/admin", with => {
+		    var response = browser.Get("/admin", with => {
 		        with.HttpRequest();
 		    });
 		        
 		    // Then
-		    Assert.AreEqual (HttpStatusCode.Forbidden, result.StatusCode);
+		    response.ShouldHaveRedirectedTo("/login?returnUrl=/admin");
+		    //Assert.AreEqual (HttpStatusCode.SeeOther, result.StatusCode);
 		}
 	}
 }

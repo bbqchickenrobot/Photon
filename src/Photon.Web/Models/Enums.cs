@@ -3,9 +3,25 @@ using System;
 
 namespace Photon.Web.Models
 {
-	public enum VisibilityType
+	[Flags]
+	public enum VisibilityType:int
 	{
 		Public,
 		Private
+	}
+	
+	[Flags]
+	public enum UserStatus:int
+	{
+		InActive,
+		Active
+	}
+	
+	[Flags]
+	public enum UserRole:int
+	{
+		Guest,
+		SiteUser,
+		Admin
 	}
 }

@@ -8,12 +8,10 @@ namespace Photon.Web.Services
 	public interface IAlbumService
 	{
 		Album Load(string id);
-		Album LoadForPhoto(string photoId);
 		Album Save(Album album);
 		void Delete(Album album);
 		
 		IList<Album> Recent(int limit);
 		IList<Album> FindByTags(IList<String> tags);
-		IList<Photo> FindPhotosByTags(IList<String> tags);
 	}
 }

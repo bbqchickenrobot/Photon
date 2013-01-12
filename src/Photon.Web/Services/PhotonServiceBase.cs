@@ -9,9 +9,6 @@ namespace Photon.Web.Services
 	public abstract class PhotonServiceBase<T>
 	{
 		protected IDocumentSession Session {get; set;}
-		
-	
-		
 		public PhotonServiceBase (IDocumentSession session)
 		{
 			this.Session = session;

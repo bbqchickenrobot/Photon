@@ -11,24 +11,17 @@ namespace Photon.Web.Models
 	{
 		public Album()
 		{
-			this.Photos = new List<Photo>();
+			this.Photos = new List<String>();
 			this.Tags = new List<String>();
 		}
 		
 		public String Id {get; set;}
 		public String Name {get; set;}
-		public String Path {get; set;}
 		public DateTime ModifiedDate{get; set;}
 		public IList<String> Tags {get; set;}
-		public IList<Photo> Photos {get; set;}
+		public IList<String> Photos {get; set;}
+		public String AlbumCover{get; set;}
 		
-		public VisibilityType VisibilityType
-		{
-			get
-			{
-				return 
-					(this.Photos.Any() && !this.Photos.Any(a => !a.IsPrivate))?VisibilityType.Private:VisibilityType.Public;
-			}
-		}
+		public VisibilityType VisibilityType{get; set;}
 	}
 }

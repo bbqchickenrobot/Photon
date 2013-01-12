@@ -161,12 +161,13 @@
   <ItemGroup>
     <Compile Include="App_Start\SquishItLess.cs" />
     <Compile Include="Core\PhotonBootstrapper.cs" />
-    <Compile Include="DataStore\Indexes\TaggedPhotosIndex.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\Photo.cs" />
+    <Compile Include="Models\PhotonUser.cs" />
     <Compile Include="Modules\AdminModule.cs" />
+    <Compile Include="Modules\DevSetup.cs" />
     <Compile Include="Modules\LoginModule.cs" />
     <Compile Include="Modules\MainModule.cs" />
     <Compile Include="Security\PhotonUserIdentity.cs" />
@@ -175,8 +176,12 @@
     <Compile Include="Services\Exceptions\DuplicateEntityException.cs" />
     <Compile Include="Services\IAlbumService.cs" />
     <Compile Include="Services\IPhotoService.cs" />
+    <Compile Include="Services\IUserAuthenticationService.cs" />
+    <Compile Include="Services\IPhotonUserService.cs" />
     <Compile Include="Services\PhotoService.cs" />
     <Compile Include="Services\PhotonServiceBase.cs" />
+    <Compile Include="Services\UserAuthenticationService.cs" />
+    <Compile Include="Services\PhotonUserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -244,6 +249,9 @@
     <None Include="assets\css\normalize.css" />
     <None Include="assets\css\photon.less" />
     <None Include="assets\css\photon.less.squishit.debug.css" />
+    <Content Include="Views\DevSetup_Login.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

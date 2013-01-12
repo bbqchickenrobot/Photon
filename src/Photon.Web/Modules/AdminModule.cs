@@ -12,7 +12,7 @@ namespace Photon.Web.Modules
 		public AdminModule()
 			: base("/admin")
 		{
-			//this.RequiresAuthentication();
+			this.RequiresAuthentication();
 			Get["/"] = parameters =>
 			{
 				return View["AdminHome"];

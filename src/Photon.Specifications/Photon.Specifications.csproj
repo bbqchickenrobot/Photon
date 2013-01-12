@@ -126,11 +126,16 @@
     <Compile Include="ModulesTests\AdminModuleTests.cs" />
     <Compile Include="ModulesTests\MainModuleTests.cs" />
     <Compile Include="PhotonTestBootStrapper.cs" />
+    <Compile Include="SecurityTests\PhotonUserMapperTests.cs" />
     <Compile Include="ServicesTests\AlbumServiceTests.cs" />
+    <Compile Include="ServicesTests\PhotonUserServiceTests.cs" />
     <Compile Include="ServicesTests\PhotoServiceTests.cs" />
+    <Compile Include="ServicesTests\UserAuthenticationServiceTests.cs" />
     <Compile Include="TestBaseWithDatabase.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="SecurityTests" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <PropertyGroup>

@@ -6,11 +6,13 @@ using System.Web;
 using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.Conventions;
+using Photon.Web.Models;
 using Photon.Web.Security;
 using Raven.Client;
 using Raven.Client.Document;
 using Raven.Client.Embedded;
 using Nancy.TinyIoc;
+using Raven.Client.Indexes;
 
 namespace Photon.Web.Core
 {
@@ -33,7 +35,7 @@ namespace Photon.Web.Core
 				DataDirectory = "PhotonDB"
 			};
 			docStore.Initialize();
-
+			IndexCreation.CreateIndexes(typeof(Album).Assembly, docStore);
 			existingContainer
 				.Register<IDocumentStore>(docStore);
 		}
