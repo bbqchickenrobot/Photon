@@ -1,0 +1,38 @@
+﻿@model Photon.Web.ViewModels.LoginViewModel
+@{
+	Layout = "LoginLayout.cshtml";
+	ViewBag.Title = "Login";
+}
+<div class="row-fluid">
+	<div class="offset3 span6">
+		@if (!String.IsNullOrEmpty(Model.ErrorMessage)) {
+	     	<div class="alert alert-error" style="text-align: center">
+	     		@Model.ErrorMessage
+		 	</div>
+	 	}
+		<form class="form-horizontal" method="post">
+			<div class="control-group">
+				<label class="control-label" for="username">Username</label>
+				<div class="controls">
+					<input type="text" id="username" name="username" placeholder="Username" value="@Model.UserName"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="password">Password</label>
+				<div class="controls">
+					<input type="password" id="password" name="password" placeholder="Password" value="@Model.Password"/>
+				</div>
+			</div>
+			<div class="control-group">
+					<div class="controls">
+						<label class="checkbox">
+							<input type="checkbox" name="rememberMe" id="rememberMe" @((Model.RememberMe) ? "checked":"")/> Remember me
+						</label>
+						<button type="submit" class="btn btn-primary">Sign in</button>
+					</div>
+			</div>
+		</form>
+
+	</div>
+	<div class="span3"></div>
+</div>

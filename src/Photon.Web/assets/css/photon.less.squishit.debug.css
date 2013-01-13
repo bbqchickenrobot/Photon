@@ -7735,6 +7735,23 @@ a.badge:hover {
 body {
   background-image: url("/assets/img/navy_blue.png");
   color: white;
+  font-family: "Open Sans";
+}
+.btn,
+input,
+select,
+textarea {
+  font-family: "Open Sans";
+}
+#pg {
+  background-color: white;
+  color: #111111;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#pg-login {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .page-nav {
   font-family: "Open Sans Condensed";

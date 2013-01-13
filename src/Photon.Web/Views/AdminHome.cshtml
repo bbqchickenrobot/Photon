@@ -1,4 +1,19 @@
 ﻿@{
-	Layout = "Layout.cshtml";
+	Layout = "AdminLayout.cshtml";
 	ViewBag.Title = "Admin Home";
 }
+<div id="admin-view-container">
+	<button id="add-album">Add Album</button>
+	<ul id="albumsList">
+	</ul>
+</div>
+
+
+@Html.Raw(
+	Bundle.JavaScript()
+		.Add("~/assets/js/app/template-loader.js")
+		.Add("~/assets/js/app/models/album-model.js")
+		.Add("~/assets/js/app/views/admin-view.js")
+		.Add("~/assets/js/app/admin-app.js")
+		.Render("~/assets/js/combined_admin_#.js")
+)

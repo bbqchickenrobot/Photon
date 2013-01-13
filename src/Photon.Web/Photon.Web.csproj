@@ -14,7 +14,7 @@
     <RootNamespace>Photon.Web</RootNamespace>
     <AssemblyName>Photon.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -139,11 +139,12 @@
     <Content Include="apple-touch-icon.png" />
     <Content Include="assets\img\navy_blue.png" />
     <Content Include="assets\img\site-logo.png" />
+    <Content Include="assets\js\app\admin-app.js" />
     <Content Include="assets\js\app\models\album-model.js" />
+    <Content Include="assets\js\app\template-loader.js" />
     <Content Include="assets\js\app\templates\AlbumsList.html" />
     <Content Include="assets\js\app\templates\AlbumDetails.html" />
-    <Content Include="assets\js\app\views\album-list.js" />
-    <Content Include="assets\js\app\views\album-details.js" />
+    <Content Include="assets\js\app\views\admin-view.js" />
     <Content Include="assets\js\common\backbone.js" />
     <Content Include="assets\js\common\bootstrap.js" />
     <Content Include="assets\js\common\lodash.js" />
@@ -167,7 +168,7 @@
     <Compile Include="Models\Photo.cs" />
     <Compile Include="Models\PhotonUser.cs" />
     <Compile Include="Modules\AdminModule.cs" />
-    <Compile Include="Modules\DevSetup.cs" />
+    <Compile Include="Modules\DevUtils.cs" />
     <Compile Include="Modules\LoginModule.cs" />
     <Compile Include="Modules\MainModule.cs" />
     <Compile Include="Security\PhotonUserIdentity.cs" />
@@ -182,6 +183,7 @@
     <Compile Include="Services\PhotonServiceBase.cs" />
     <Compile Include="Services\UserAuthenticationService.cs" />
     <Compile Include="Services\PhotonUserService.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -249,7 +251,16 @@
     <None Include="assets\css\normalize.css" />
     <None Include="assets\css\photon.less" />
     <None Include="assets\css\photon.less.squishit.debug.css" />
-    <Content Include="Views\DevSetup_Login.cshtml">
+    <Content Include="Views\DevUtils.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Login.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\LoginLayout.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\AdminLayout.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Web.Debug.config">
@@ -275,11 +286,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53676</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53386/</IISUrl>
+          <IISUrl>http://photon.dev</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://photon.dev</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

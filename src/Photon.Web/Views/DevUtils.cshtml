@@ -1,0 +1,44 @@
+﻿@{
+	Layout = "Layout.cshtml";
+	ViewBag.Title = "Dev Utils - Home";
+}
+<form method="post" class="form-horizontal" style="width: 30%; margin: auto;padding-top: 20px">
+	<div class="control-group">
+		<label class="control-label" for="passcode">Passcode</label>
+		<div class="controls">
+				<input type="password" name="passcode" id="passcode" placeholder="Enter Passcode ...">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="task">Select Task</label>
+		<div class="controls">
+			<select name="task" id="task">
+				<option value="load-sample-data">Load Sample Data</option>
+			</select>
+		</div>
+	</div>
+	<div class="control-group" style="text-align: right">
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</div>
+	<div id="message" class="alert alert-info hide" style="text-align: center">
+		<h4>Message Placeholder</h4>
+	</div>
+</form>
+
+
+<script type="text/javascript">
+	$(function(){
+		$("form").submit(function(e){
+			$("#message").hide();
+			e.preventDefault();
+			$.ajax({
+				url: "@Url.Content("~/_devutils/")" + $("#task").val(),
+				type: "POST",
+				data: $(this).serialize()
+			}).done(function(response){
+				$("#message > h4").html(response.Message);
+				$("#message").fadeIn(400).delay(5000).slideUp();
+			});
+		});
+	});
+</script>

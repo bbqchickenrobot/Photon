@@ -13,6 +13,7 @@ using Raven.Client.Document;
 using Raven.Client.Embedded;
 using Nancy.TinyIoc;
 using Raven.Client.Indexes;
+using Photon.Web.Services;
 
 namespace Photon.Web.Core
 {
@@ -29,21 +30,28 @@ namespace Photon.Web.Core
 		protected override void ConfigureApplicationContainer(TinyIoCContainer existingContainer)
 		{
 			base.ConfigureApplicationContainer(existingContainer);
-			
+			//Raven.Database.Server.NonAdminHttp.EnsureCanListenToWhenInNonAdminContext(8081);
 			var docStore = new EmbeddableDocumentStore
 			{
-				DataDirectory = "PhotonDB"
+				DataDirectory = "PhotonDB",
+				
+				//Url="http://localhost:8080"
 			};
 			docStore.Initialize();
 			IndexCreation.CreateIndexes(typeof(Album).Assembly, docStore);
-			existingContainer
-				.Register<IDocumentStore>(docStore);
+			existingContainer.Register<IDocumentStore>(docStore);
 		}
 
 		protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
 		{
 			base.ConfigureRequestContainer(container, context);
 			container.Register<IUserMapper, PhotonUserMapper>();
+			container.Register<IUserAuthenticationService, UserAuthenticationService>();
+			container.Register<IPhotonUserService, PhotonUserService>();
+			container.Register<IAlbumService, AlbumService>();
+			container.Register<IPhotoService, PhotoService>();
+			
+				
 			container.Register<IDocumentSession>((c, p) => {
 				return 
 					c.Resolve<IDocumentStore>()
