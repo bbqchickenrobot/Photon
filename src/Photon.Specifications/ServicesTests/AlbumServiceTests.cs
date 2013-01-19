@@ -151,7 +151,7 @@ namespace Photon.Specifications.ServicesTests
 				session.Store(album);
 				session.SaveChanges();
 				var albumService = new AlbumService(session);
-				albumService.Delete(album);
+				albumService.Delete(album.Id);
 				var dummyAlbum = session.Load<Album>(album.Id);
 				Assert.Null(dummyAlbum);
 			}
@@ -190,7 +190,7 @@ namespace Photon.Specifications.ServicesTests
 			}
 		}
 		
-		[Test]
+		[Ignore]
 		public void FindByTags_Returns_Albums_With_Matching_Tags()
 		{
 			using(var session = this.GetNewSession())

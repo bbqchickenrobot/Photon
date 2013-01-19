@@ -30,6 +30,7 @@
 			.Add("~/assets/js/common/bootstrap.js")
 			.Add("~/assets/js/plugins.js")
 			.Add("~/assets/js/utils.js")
+			.Add("~/assets/js/photon/index.js")
 			.Render("~/assets/js/combined_#.js")
 	)
 </head>
@@ -37,12 +38,15 @@
 	<!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
-	<div class="container">
-		<div id="pg" style="margin-top: 20px">
-			@RenderBody()
+	<div id="pg" style="padding:10px">
+		<div class="container">
+			<div style="margin-top: 20px">
+				@RenderBody()
+			</div>
+			
 		</div>
-		
 	</div>
+	
 	
 	
 </body>

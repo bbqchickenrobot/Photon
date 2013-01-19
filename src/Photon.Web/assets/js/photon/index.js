@@ -1,0 +1,4 @@
+Photon = {
+	init: function(){
+	}
+};

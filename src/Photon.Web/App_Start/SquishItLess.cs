@@ -2,14 +2,14 @@
 
 namespace Photon.Web.App_Start
 {
-    using SquishIt.Framework;
-    using SquishIt.Less;
+	using SquishIt.Framework;
+	using SquishIt.Less;
 
-    public class SquishItLess
-    {
-        public static void Start()
-        {
-            Bundle.RegisterStylePreprocessor(new LessPreprocessor());
-        }
-    }
+	public class SquishItLess
+	{
+		public static void Start()
+		{
+			Bundle.RegisterStylePreprocessor(new LessPreprocessor());
+		}
+	}
 }

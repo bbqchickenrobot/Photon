@@ -16,7 +16,7 @@ namespace Photon.Web.Modules
 			{
 				return View["Home"];
 			};
-			
+
 			Get["/recent-albums"] = parameters =>
 			{
 				var albums = DocSession.Query<Album>();

@@ -41,7 +41,7 @@ namespace Photon.Web.Modules
 					model.ResultCode = -100;
 					model.Message = "Invalid passcode";
 				}
-				else if(RavenSession.Query<PhotonUser>().Any(a => a.UserName == "admin"))
+				else if (RavenSession.Query<PhotonUser>().Any(a => a.UserName == "admin"))
 				{
 					model.ResultCode = -101;
 					model.Message = "Data already exists!!!";
@@ -59,6 +59,17 @@ namespace Photon.Web.Modules
 						Role = UserRole.Admin,
 						Status = UserStatus.Active
 					};
+					for (var i = 0; i < 10; i++)
+					{
+						var album = new Album
+						{
+							AlbumCover = "Some Path",
+							Name = i.ToString() + "Album",
+							VisibilityType = VisibilityType.Public,
+							Tags = new[] { "test-album" }
+						};
+						RavenSession.Store(album);
+					}
 					RavenSession.Store(photonUser);
 					RavenSession.SaveChanges();
 				}

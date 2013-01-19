@@ -6,9 +6,9 @@ namespace Photon.Web.Services
 {
 	public interface IPhotonUserService
 	{
-			PhotonUser Load(string id);
-			PhotonUser Save(PhotonUser photonUser);
-			void Delete(PhotonUser photonUser);
-			PhotonUser GetUserByUserName(String userName);
+		PhotonUser Load(string id);
+		PhotonUser Save(PhotonUser photonUser);
+		void Delete(String Id);
+		PhotonUser GetUserByUserName(String userName);
 	}
 }

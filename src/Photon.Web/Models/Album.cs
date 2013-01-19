@@ -6,7 +6,7 @@ using Raven.Imports.Newtonsoft.Json;
 
 namespace Photon.Web.Models
 {
-	[JsonObject(IsReference=true)]
+	[JsonObject(IsReference = true)]
 	public class Album
 	{
 		public Album()
@@ -14,14 +14,14 @@ namespace Photon.Web.Models
 			this.Photos = new List<String>();
 			this.Tags = new List<String>();
 		}
-		
-		public String Id {get; set;}
-		public String Name {get; set;}
-		public DateTime ModifiedDate{get; set;}
-		public IList<String> Tags {get; set;}
-		public IList<String> Photos {get; set;}
-		public String AlbumCover{get; set;}
-		
-		public VisibilityType VisibilityType{get; set;}
+
+		public String Id { get; set; }
+		public String Name { get; set; }
+		public DateTime ModifiedDate { get; set; }
+		public IList<String> Tags { get; set; }
+		public IList<String> Photos { get; set; }
+		public String AlbumCover { get; set; }
+
+		public VisibilityType VisibilityType { get; set; }
 	}
 }

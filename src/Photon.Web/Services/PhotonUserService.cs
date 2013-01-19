@@ -7,9 +7,10 @@ using Raven.Client.Linq;
 
 namespace Photon.Web.Services
 {
-	public class PhotonUserService:PhotonServiceBase<PhotonUser>,  IPhotonUserService
+	public class PhotonUserService : PhotonServiceBase<PhotonUser>, IPhotonUserService
 	{
-		public PhotonUserService(IDocumentSession session):base(session)
+		public PhotonUserService(IDocumentSession session)
+			: base(session)
 		{
 		}
 		public virtual PhotonUser GetUserByUserName(String userName)

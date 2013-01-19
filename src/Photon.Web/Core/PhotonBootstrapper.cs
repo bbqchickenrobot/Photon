@@ -17,13 +17,16 @@ using Photon.Web.Services;
 
 namespace Photon.Web.Core
 {
-	public class PhotonBootstrapper:DefaultNancyBootstrapper
+	public class PhotonBootstrapper : DefaultNancyBootstrapper
 	{
 		protected override void ConfigureConventions(Nancy.Conventions.NancyConventions nancyConventions)
 		{
 			base.ConfigureConventions(nancyConventions);
 			nancyConventions.StaticContentsConventions.Add(
 						StaticContentConventionBuilder.AddDirectory("assets", @"assets")
+			);
+			nancyConventions.StaticContentsConventions.Add(
+						StaticContentConventionBuilder.AddDirectory("albums-store", @"_albums")
 			);
 		}
 
@@ -34,7 +37,7 @@ namespace Photon.Web.Core
 			var docStore = new EmbeddableDocumentStore
 			{
 				DataDirectory = "PhotonDB",
-				
+
 				//Url="http://localhost:8080"
 			};
 			docStore.Initialize();
@@ -50,28 +53,29 @@ namespace Photon.Web.Core
 			container.Register<IPhotonUserService, PhotonUserService>();
 			container.Register<IAlbumService, AlbumService>();
 			container.Register<IPhotoService, PhotoService>();
-			
-				
-			container.Register<IDocumentSession>((c, p) => {
-				return 
+
+			container.Register<IDocumentSession>((c, p) =>
+			{
+				return
 					c.Resolve<IDocumentStore>()
 					.OpenSession();
 			});
+
 		}
-		
+
 		protected override void RequestStartup(TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines, NancyContext context)
 		{
 			base.RequestStartup(container, pipelines, context);
 			var formsAuthConfiguration =
-	            new FormsAuthenticationConfiguration()
-	            {
-	                RedirectUrl = "~/login",
-	                UserMapper = container.Resolve<IUserMapper>(),
-	            };
-	
-	        FormsAuthentication.Enable(pipelines, formsAuthConfiguration);
+							new FormsAuthenticationConfiguration()
+							{
+								RedirectUrl = "~/login",
+								UserMapper = container.Resolve<IUserMapper>(),
+							};
+
+			FormsAuthentication.Enable(pipelines, formsAuthConfiguration);
 		}
-		
+
 		protected override Nancy.Diagnostics.DiagnosticsConfiguration DiagnosticsConfiguration
 		{
 			get { return new Nancy.Diagnostics.DiagnosticsConfiguration { Password = "password" }; }

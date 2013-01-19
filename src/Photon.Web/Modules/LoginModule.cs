@@ -8,7 +8,7 @@ using Photon.Web.Services;
 
 namespace Photon.Web.Modules
 {
-	public class LoginModule:NancyModule
+	public class LoginModule : NancyModule
 	{
 		protected IUserAuthenticationService UserAuthenticationService { get; set; }
 		protected IPhotonUserService PhotonUserService { get; set; }
@@ -18,8 +18,9 @@ namespace Photon.Web.Modules
 			this.UserAuthenticationService = userAuthenticationService;
 			this.PhotonUserService = photonUserService;
 
-			Get["/"] = parameters => {
-					return View["login", new LoginViewModel()];
+			Get["/"] = parameters =>
+			{
+				return View["login", new LoginViewModel()];
 			};
 			Post["/"] = parameters =>
 			{
@@ -43,7 +44,7 @@ namespace Photon.Web.Modules
 					loginModel.ErrorMessage = "Invalid Username/Password.";
 					return View["login", loginModel];
 				}
-				
+
 			};
 		}
 	}

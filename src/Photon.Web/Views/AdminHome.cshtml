@@ -2,18 +2,55 @@
 	Layout = "AdminLayout.cshtml";
 	ViewBag.Title = "Admin Home";
 }
-<div id="admin-view-container">
-	<button id="add-album">Add Album</button>
-	<ul id="albumsList">
+<div class="row-fluid">
+	<ul id="breadcrumbs" class="breadcrumb span12">
 	</ul>
 </div>
+<div class="row-fluid">
+	<div id="new-album-container" class="span12">
+		
+	</div>
+</div>
+<div id="album-list">
+	
+</div>
+
 
 
 @Html.Raw(
 	Bundle.JavaScript()
-		.Add("~/assets/js/app/template-loader.js")
-		.Add("~/assets/js/app/models/album-model.js")
-		.Add("~/assets/js/app/views/admin-view.js")
-		.Add("~/assets/js/app/admin-app.js")
+		.Add("~/assets/js/photon/admin-app.js")
+		.Add("~/assets/js/photon/views/admin-nav.js")
+		.Add("~/assets/js/photon/views/album.js")
+		.Add("~/assets/js/photon/models/album.js")
 		.Render("~/assets/js/combined_admin_#.js")
 )
+
+<script type="text/backbone" id="album-template">
+	<div class="thumbnail">
+		<img src="/albums-store/no-picture.png" alt="">
+		<h3><%=Name%></h3>
+		<a class="btn edit-album" href="#/edit-album/<%=Id%>">
+			<i class="icon-edit"></i> Edit
+		</a>
+		<a class="btn delete-album" href="#/delete-album/<%=Id%>">
+			<i class="icon-remove"></i> Delete
+		</a>
+	</div>
+</script>
+
+<script type="text/backbone" id="new-album-template">
+	<form method="post" class="form-horizontal">
+		<input type="text" id="albumName" name="albumName" />
+		<button class="btn btn-primary pull-right">
+			<i class="icon-plus"></i> Add Album
+		</button>
+	</form>
+		<br/>
+</script>
+
+<script type="text/javascript">
+	$(function(){
+		Photon.Admin.App.init();
+	});
+</script>

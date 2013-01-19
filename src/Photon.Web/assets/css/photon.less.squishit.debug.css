@@ -7785,3 +7785,6 @@ textarea {
 .tiles-container .thumbnail .caption {
   color: #eeeeee;
 }
+.thumbnails {
+  text-align: center;
+}

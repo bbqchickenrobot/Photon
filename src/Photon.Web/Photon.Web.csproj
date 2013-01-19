@@ -139,18 +139,17 @@
     <Content Include="apple-touch-icon.png" />
     <Content Include="assets\img\navy_blue.png" />
     <Content Include="assets\img\site-logo.png" />
-    <Content Include="assets\js\app\admin-app.js" />
-    <Content Include="assets\js\app\models\album-model.js" />
-    <Content Include="assets\js\app\template-loader.js" />
-    <Content Include="assets\js\app\templates\AlbumsList.html" />
-    <Content Include="assets\js\app\templates\AlbumDetails.html" />
-    <Content Include="assets\js\app\views\admin-view.js" />
+    <Content Include="assets\js\photon\admin-app.js" />
+    <Content Include="assets\js\photon\models\album.js" />
+    <Content Include="assets\js\photon\views\admin-nav.js" />
+    <Content Include="assets\js\photon\template-loader.js" />
     <Content Include="assets\js\common\backbone.js" />
     <Content Include="assets\js\common\bootstrap.js" />
     <Content Include="assets\js\common\lodash.js" />
     <Content Include="assets\js\common\modernizr-2.6.1.min.js" />
     <Content Include="assets\js\jquery\jQuery.js" />
-    <Content Include="assets\js\app\main.js" />
+    <Content Include="assets\js\photon\index.js" />
+    <Content Include="assets\js\photon\views\album.js" />
     <Content Include="assets\js\plugins.js" />
     <Content Include="assets\js\utils.js" />
     <Content Include="crossdomain.xml" />
@@ -158,6 +157,7 @@
     <Content Include="humans.txt" />
     <Content Include="robots.txt" />
     <Content Include="Web.config" />
+    <Content Include="_albums\no-picture.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\SquishItLess.cs" />
@@ -168,6 +168,7 @@
     <Compile Include="Models\Photo.cs" />
     <Compile Include="Models\PhotonUser.cs" />
     <Compile Include="Modules\AdminModule.cs" />
+    <Compile Include="Modules\AlbumsModule.cs" />
     <Compile Include="Modules\DevUtils.cs" />
     <Compile Include="Modules\LoginModule.cs" />
     <Compile Include="Modules\MainModule.cs" />

@@ -5,6 +5,7 @@ using Nancy.Authentication.Forms;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
 using Photon.Web.Security;
+using Photon.Web.Services;
 using Raven.Client;
 using Raven.Client.Embedded;
 
@@ -51,6 +52,10 @@ namespace Photon.Specifications
 		{
 			base.ConfigureRequestContainer(container, context);
 			container.Register<IUserMapper, PhotonUserMapper>();
+			container.Register<IUserAuthenticationService, UserAuthenticationService>();
+			container.Register<IPhotonUserService, PhotonUserService>();
+			container.Register<IAlbumService, AlbumService>();
+			container.Register<IPhotoService, PhotoService>();
 			container.Register<IDocumentSession>((c, p) => {
 				return 
 					c.Resolve<IDocumentStore>()

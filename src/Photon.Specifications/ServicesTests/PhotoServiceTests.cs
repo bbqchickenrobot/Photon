@@ -173,7 +173,7 @@ namespace Photon.Specifications.ServicesTests
 				session.Store(photo);
 				session.SaveChanges();
 				var photoService = new PhotoService(session);
-				photoService.Delete(photo);
+				photoService.Delete(photo.Id);
 				var dummyPhoto = session.Load<Photo>(photo.Id);
 				Assert.Null(dummyPhoto);
 			}

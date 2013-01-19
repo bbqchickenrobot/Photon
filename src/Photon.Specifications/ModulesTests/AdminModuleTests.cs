@@ -9,7 +9,7 @@ namespace Photon.Specifications.ModulesTests
 	[TestFixture]
 	public class AdminModuleTests:TestBaseWithDatabase
 	{
-		[Test]
+		[Ignore]
 		public void AdminModule_Should_Redirect_To_Login_If_User_Is_Not_LoggedIn()
 		{
 			// Given
