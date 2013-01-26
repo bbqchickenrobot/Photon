@@ -1,19 +1,30 @@
 ﻿Photon.NewAlbumView = Backbone.View.extend({
+	initialize: function(){
+
+	},
 	events: {
 		"submit form": "addAlbum"
 	},
-	addAlbum: function(e){
+	addAlbum: function(e) {
 		e.preventDefault();
 		var albumName = $("#albumName").val(); 
-
+		var tags = $("#albumTags").val().split(/,/g).map(function(e, i){
+			return $.trim(e);
+		});
 		var newAlbum = new Photon.Album({
-			Name: albumName
+			Name: albumName,
+			Tags: tags
 		});
 
-		newAlbum.save();
-		Photon.Admin.App.albums.add(newAlbum);
+		newAlbum.save({}, {
+			success: function(e){
+				Photon.Admin.App.albums.fetch({add: true});
+			}
+		});
+		
+		$("#add-album-modal").modal("toggle");
 	},
-	render: function(){
+	render: function() {
 		var template = $("#new-album-template").html(); 
 		var compiled = _.template(template, {});
 		this.$el.html(compiled);

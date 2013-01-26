@@ -34,7 +34,6 @@ namespace Photon.Web.Modules
 
 			Post["/"] = parameters =>
 			{
-
 				try
 				{
 					var album = this.Bind<Album>();

@@ -30,6 +30,7 @@
 	<div class="thumbnail">
 		<img src="/albums-store/no-picture.png" alt="">
 		<h3><%=Name%></h3>
+	
 		<a class="btn edit-album" href="#/edit-album/<%=Id%>">
 			<i class="icon-edit"></i> Edit
 		</a>
@@ -40,13 +41,35 @@
 </script>
 
 <script type="text/backbone" id="new-album-template">
-	<form method="post" class="form-horizontal">
-		<input type="text" id="albumName" name="albumName" />
-		<button class="btn btn-primary pull-right">
-			<i class="icon-plus"></i> Add Album
-		</button>
-	</form>
-		<br/>
+	<a href="#add-album-modal" class="btn btn-primary pull-right" data-toggle="modal" data-target="#add-album-modal">
+		<i class="icon-plus"></i> Add Album
+	</a><br class="clearfix"/>
+	
+	<div id="add-album-modal" class="modal hide"  tabindex="-1" role="dialog" >
+		<div class="modal-header">
+			<h3>Add Album</h3>
+		</div>
+		<form method="post" class="form-horizontal">
+			<div class="modal-body">
+				<div class="control-group">
+					<label class="control-label" for="albumName">Name</label>
+					<div class="controls">
+						<input type="text" id="albumName" name="albumName" placeholder="Album Name">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="albumTags">Tags</label>
+					<div class="controls">
+						<input type="text" id="albumTags" name="albumTags" placeholder="Tags">
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+					<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+					<button class="btn btn-primary save-album">Save</button>
+			</div>
+		</form>
+	</div>
 </script>
 
 <script type="text/javascript">
